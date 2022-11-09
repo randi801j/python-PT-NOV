@@ -1,0 +1,25 @@
+INSERT INTO users (name,email,password) VALUES ('John Doe','j@j.com','123456');
+INSERT INTO users (name,email,password) VALUES ('Jane Doe','d@d.com','123456');
+INSERT INTO users (name,email,password) VALUES ('Jack Doe','b@b.com','123456');
+INSERT INTO users (name,email,password) VALUES ('James Doe','a@a.com','123456');
+SELECT * FROM users;
+SELECT id,name FROM users;
+
+SELECT * from users WHERE id=3;
+
+
+UPDATE users SET name='new name', email='n@n.com',password='123456' WHERE id=2;
+-- SET SQL_SAFE_UPDATES = 1;
+DELETE FROM users WHERE id=5; 
+
+INSERT INTO posts (content,user_id) VALUES ('Hello world',6),('This is test',7),('This is test also',8);
+INSERT INTO posts (content,user_id) VALUES ('This is test2',7);
+SELECT * FROM posts;
+
+SELECT * FROM users JOIN posts ON users.id = posts.user_id;
+SELECT * FROM users  INNER JOIN posts ON users.id = posts.user_id;
+SELECT * FROM users LEFT JOIN posts ON users.id = posts.user_id;
+SELECT * FROM posts LEFT JOIN users ON users.id = posts.user_id;
+SELECT * FROM users RIGHT JOIN posts ON users.id = posts.user_id;
+
+SELECT * FROM posts JOIN users ON posts.user_id = users.id WHERE users.id = 7;
